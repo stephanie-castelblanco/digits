@@ -4,11 +4,12 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Stuffs } from '../../api/stuff/Stuff';
 import LoadingSpinner from '../components/LoadingSpinner';
+import Contact from '../components/Contact';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ListContacts = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, contact } = useTracker(() => {
+  const { ready } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
@@ -18,7 +19,7 @@ const ListContacts = () => {
     // Get the Stuff documents
     const stuffItems = Stuffs.collection.find({}).fetch();
     return {
-      contact: stuffItems, // Renamed from stuffs to contacts
+      contact: stuffItems,
       ready: rdy,
     };
   }, []);
