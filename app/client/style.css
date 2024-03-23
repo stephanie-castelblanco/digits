@@ -12,6 +12,7 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
+  background: fixed center url("images/light1.webp");
 }
 
 /* Set the alert background on the signin and signup pages. */
