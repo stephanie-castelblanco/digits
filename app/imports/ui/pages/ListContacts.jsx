@@ -19,7 +19,7 @@ const ListContacts = () => {
     // Get the Stuff documents
     const contactItems = Contacts.collection.find({}).fetch();
     return {
-      contact: contactItems,
+      contacts: contactItems,
       ready: rdy,
     };
   }, []);
