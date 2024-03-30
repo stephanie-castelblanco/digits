@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, LongTextField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, LongTextField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -23,10 +23,10 @@ const AddContact = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, quantity, condition } = data;
+    const { firstName, lastName, address, image, description } = data;
     const owner = Meteor.user().username;
     Contacts.collection.insert(
-      { name, quantity, condition, owner },
+      { firstName, lastName, address, image, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -57,6 +57,7 @@ const AddContact = () => {
                   <Col><TextField name="image" /></Col>
                 </Row>
                 <LongTextField name="description" />
+                <SubmitField />
                 <ErrorsField />
               </Card.Body>
             </Card>
