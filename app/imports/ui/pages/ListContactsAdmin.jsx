@@ -4,7 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Contacts } from '../../api/contact/Contacts';
 import LoadingSpinner from '../components/LoadingSpinner';
-import Contact from '../components/Contact';
+import ContactAdmin from '../components/ContactAdmin';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ListContactsAdmin = () => {
@@ -35,7 +35,6 @@ const ListContactsAdmin = () => {
             {contacts.map((contact) => (
               <Col key={contact.id}>
                 <ContactAdmin contact={contact} />
-                <Contact contact={contact} />
               </Col>
             ))}
           </Row>
