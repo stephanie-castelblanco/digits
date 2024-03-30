@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
+import { Contacts } from '../../api/contact/Contacts';
 
 /* eslint-disable no-console */
 
@@ -14,5 +15,19 @@ if (Stuffs.collection.find().count() === 0) {
   if (Meteor.settings.defaultData) {
     console.log('Creating default data.');
     Meteor.settings.defaultData.forEach(data => addData(data));
+  }
+}
+
+// Initialize the database with default contact data.
+const addContact = (contact) => {
+  console.log(`  Adding: ${contact.lastName} (${contact.owner})`);
+  Contacts.collection.insert(contact);
+};
+
+// Initialize the Stuff collection if empty.
+if (Contacts.collection.find().count() === 0) {
+  if (Meteor.settings.defaultContacts) {
+    console.log('Creating default contact data.');
+    Meteor.settings.defaultContacts.forEach(contact => addContact(contact));
   }
 }
