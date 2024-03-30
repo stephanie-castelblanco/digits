@@ -6,10 +6,17 @@ import { Contacts } from '../../api/contact/Contacts';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ContactAdmin from '../components/ContactAdmin';
 
+/* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ListContactsAdmin = () => {
+  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, contacts } = useTracker(() => {
+    // Note that this subscription will get cleaned up
+    // when your component is unmounted or deps change.
+    // Get access to Stuff documents.
     const subscription = Meteor.subscribe(Contacts.adminPublicationName);
+    // Determine if the subscription is ready
     const rdy = subscription.ready();
+    // Get the Stuff documents
     const contactItems = Contacts.collection.find({}).fetch();
     return {
       contacts: contactItems,
