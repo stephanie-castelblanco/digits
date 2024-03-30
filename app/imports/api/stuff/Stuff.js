@@ -33,4 +33,4 @@ class StuffsCollection {
  * The singleton instance of the StuffsCollection.
  * @type {StuffsCollection}
  */
-export const Contacts = new StuffsCollection();
+export const Stuffs = new StuffsCollection();
