@@ -4,6 +4,7 @@ import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField } from 'unif
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
+import PropTypes from 'prop-types';
 import { Notes } from '../../api/note/Notes';
 
 // Create a schema to specify the structure of the data to appear in the form.
@@ -18,11 +19,12 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the AddStuff page for adding a document. */
 const AddNote = ({ owner, contactId }) => {
+
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { note, createdAt } = data;
     Notes.collection.insert(
-      { note, contactId, owner, createdAt },
+      { note, contactId, createdAt, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
