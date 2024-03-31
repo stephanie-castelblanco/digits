@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Card, Image, ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Note from './Note';
+import AddNote from './AddNote';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const Contact = ({ contact, notes }) => (
@@ -18,6 +19,7 @@ const Contact = ({ contact, notes }) => (
         {notes.map((note) => <Note key={note._id} note={note} />)}
       </ListGroup>
       <Link to={`/edit/${contact._id}`}>Edit</Link>
+      <AddNote owner={contact.owner} contactId={contact._id} />
     </Card.Body>
   </Card>
 );
