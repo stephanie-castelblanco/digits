@@ -4,7 +4,6 @@ import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField } from 'unif
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Contacts } from '../../api/contact/Contacts';
 import { Notes } from '../../api/note/Notes';
 
 // Create a schema to specify the structure of the data to appear in the form.
@@ -44,7 +43,6 @@ const AddNote = ({ owner, contactId }) => {
           <Col className="text-center"><h5>Add Timestamped Note</h5></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
-
               <Card.Body>
                 <TextField name="note" />
                 <SubmitField />
@@ -53,9 +51,6 @@ const AddNote = ({ owner, contactId }) => {
                 <HiddenField name="contactId" value={contactId} />
                 <HiddenField name="createdAt" value={new Date()} />
               </Card.Body>
-              <TextField name="description" />
-              <SubmitField />
-              <ErrorsField />
             </Card>
           </AutoForm>
         </Col>

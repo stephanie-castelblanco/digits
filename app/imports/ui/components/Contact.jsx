@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image, ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import AddNote from './AddNote';
 import Note from './Note';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -18,6 +19,7 @@ const Contact = ({ contact, notes }) => (
         {notes.map((note) => <Note key={note._id} note={note} />)}
       </ListGroup>
       <Link to={`/edit/${contact._id}`}>Edit</Link>
+      <AddNote owner={contact.owner} contactId={contact._id} />
     </Card.Body>
   </Card>
 );
@@ -29,6 +31,7 @@ Contact.propTypes = {
     lastName: PropTypes.string,
     address: PropTypes.string,
     image: PropTypes.string,
+    owner: PropTypes.string,
     description: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
