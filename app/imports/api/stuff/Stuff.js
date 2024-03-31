@@ -1,6 +1,5 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
-import { Stuffs } from '../../api/stuff/Stuff';
 
 /**
  * The StuffsCollection. It encapsulates state and variable values for stuff.
