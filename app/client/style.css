@@ -17,6 +17,7 @@ body {
   --bs-dark-rgb: var(--matr-navbar-bg-rgb);
   background: fixed center url("images/light1.webp");
   background-size: cover;
+  min-height: 100vh; /* Ensure the container covers the entire viewport height */
 }
 
 /* Set the alert background on the signin and signup pages. */
