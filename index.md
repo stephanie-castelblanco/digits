@@ -119,3 +119,5 @@ From the List Contacts page, the user can click the “Edit” link associated w
 It is possible to designate one or more users as “Admins” through the settings file. When a user has the Admin role, they get access to a special NavBar link that retrieves a page listing all Contacts associated with all users:
 
 <img src="doc/Adm.png"> 
+<img src="doc/Adm2.png"> 
+
